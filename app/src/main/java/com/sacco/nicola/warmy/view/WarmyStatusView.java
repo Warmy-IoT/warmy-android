@@ -179,9 +179,7 @@ public class WarmyStatusView extends LinearLayout {
         // mChart.setDrawHorizontalGrid(false);
         //
         // enable / disable grid background
-        //chart.setDrawGridBackground(false);
-
-        chart.setGridBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryLight));
+        chart.setDrawGridBackground(false);
 
         // enable touch gestures
         chart.setTouchEnabled(true);
@@ -193,7 +191,7 @@ public class WarmyStatusView extends LinearLayout {
         // if disabled, scaling can be done on x- and y-axis separately
         chart.setPinchZoom(false);
 
-        chart.setBackgroundColor(color);
+        chart.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryLight));
 
         // set custom chart offsets (automatic offset calculation is hereby disabled)
         chart.setViewPortOffsets(10, 0, 10, 0);
