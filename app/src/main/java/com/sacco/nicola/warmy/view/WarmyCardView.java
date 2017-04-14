@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.sacco.nicola.warmy.R;
 import com.sacco.nicola.warmy.model.Warmy;
 
+import java.text.DecimalFormat;
+
 /**
  * Created by nicolasacco on 29/12/15.
  */
@@ -30,6 +32,11 @@ public class WarmyCardView extends LinearLayout {
         return warmy;
     }
 
+    private String roundNoDecimals(double d) {
+        DecimalFormat twoDForm = new DecimalFormat("##.#");
+        return twoDForm.format(d);
+    }
+
     /**
      * @param d
      */
@@ -41,14 +48,14 @@ public class WarmyCardView extends LinearLayout {
 
         this.textWarmyName.setText(d.getName());
 
-        this.textWarmyActualTemperature.setText(String.valueOf(d.getActualTemperature()) + "°C");
+        this.textWarmyActualTemperature.setText(roundNoDecimals(d.getActualTemperature()));
 
-        this.textWarmyDesiredTemperature.setText(String.valueOf(d.getDesiredTemperature()) + "°C");
+        this.textWarmyDesiredTemperature.setText(roundNoDecimals(d.getDesiredTemperature()) + "°C");
 
         if (d.isWarming()) {
             this.imageWarmyLogo.setVisibility(View.VISIBLE);
         } else {
-            this.imageWarmyLogo.setVisibility(View.INVISIBLE);
+            this.imageWarmyLogo.setVisibility(View.GONE);
         }
 
         String actualModeString = getResources().getString(R.string.unknown);

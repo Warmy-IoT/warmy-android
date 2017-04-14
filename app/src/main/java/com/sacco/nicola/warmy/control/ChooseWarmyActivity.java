@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +16,7 @@ import android.view.View;
 
 import com.sacco.nicola.warmy.R;
 import com.sacco.nicola.warmy.model.Warmy;
+import com.sacco.nicola.warmy.view.VarColumnGridLayoutManager;
 import com.sacco.nicola.warmy.view.WarmyRecyclerAdapter;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -103,8 +105,7 @@ public class ChooseWarmyActivity extends AppCompatActivity {
 
 
         mRecyclerView = (RecyclerView) findViewById(R.id.warmy_recycler_view);
-
-        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager = new VarColumnGridLayoutManager(this, 1000);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         mAdapter = new WarmyRecyclerAdapter(getBaseContext());
