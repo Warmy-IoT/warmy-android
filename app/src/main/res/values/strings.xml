@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Warmy</string>
+    <string name="action_settings">Settings</string>
+    <string name="measured_temp">Temperatura misurata</string>
+    <string name="desired_temp">Temperatura desiderata</string>
+    <string name="actual_temp">Temperatura attuale</string>
+    <string name="actual_mode">Modalità attuale</string>
+    <string name="off_mode">Disattivato</string>
+    <string name="warm_off_mode">Disattivato</string>
+    <string name="warm_on_mode">Attivo</string>
+    <string name="manual_mode">Manuale</string>
+    <string name="auto_mode">Auto</string>
+    <string name="warming_state">Stato riscaldamento</string>
+    <string name="unknown">Sconosciuto</string>
+    <string name="choose_a_warmy">Scegli un warmy</string>
+    <string name="change_desired_temp">Cambia temperatura</string>
+    <string name="confirm">Conferma</string>
+    <string name="cancel">Annulla</string>
+    <string name="reloading_warmys_list">Ricarico la lista warmy...</string>
+</resources>
