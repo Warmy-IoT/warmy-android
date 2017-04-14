@@ -40,6 +40,8 @@ public class WarmyStatusView extends LinearLayout {
      */
     private LineData tempHistory;
 
+    private int samplesWindow = 50;
+
     private int xCursor = 0;
 
     private String roundOneDecimals(double d) {
@@ -101,11 +103,11 @@ public class WarmyStatusView extends LinearLayout {
                 0);
 
         if (xCursor == 0)
-            setupChart(chart, tempHistory, mColors[0]);
+            setupChart(chart, tempHistory, ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
         else {
             chart.notifyDataSetChanged();
-            chart.setVisibleXRangeMaximum(6);
-            chart.moveViewTo(tempHistory.getEntryCount() - 7, 50f, YAxis.AxisDependency.LEFT);
+            chart.setVisibleXRangeMaximum(samplesWindow - 1);
+            chart.moveViewTo(tempHistory.getEntryCount() - samplesWindow, 50f, YAxis.AxisDependency.LEFT);
         }
 
         xCursor += 1;
@@ -138,12 +140,13 @@ public class WarmyStatusView extends LinearLayout {
         LineDataSet set = new LineDataSet(new ArrayList<Entry>(), "Temperature");
 
         set.setLineWidth(2.5f);
-        set.setCircleRadius(4.5f);
+        set.setCircleRadius(1.5f);
         set.setColor(Color.rgb(240, 99, 99));
         set.setCircleColor(Color.rgb(240, 99, 99));
         set.setHighLightColor(Color.rgb(190, 190, 190));
         set.setAxisDependency(YAxis.AxisDependency.LEFT);
-        set.setValueTextSize(10f);
+        set.setDrawValues(false);
+        //set.setValueTextSize(10f);
 
         /**
          * Initializing tempHistory LineData Object
@@ -191,7 +194,7 @@ public class WarmyStatusView extends LinearLayout {
         // if disabled, scaling can be done on x- and y-axis separately
         chart.setPinchZoom(false);
 
-        chart.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryLight));
+        chart.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryLighter));
 
         // set custom chart offsets (automatic offset calculation is hereby disabled)
         chart.setViewPortOffsets(10, 0, 10, 0);

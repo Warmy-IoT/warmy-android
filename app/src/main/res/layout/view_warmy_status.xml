@@ -83,7 +83,7 @@
 
                     android:layout_height="match_parent"
                     android:gravity="bottom"
-                    android:text="22.3"
+                    android:text="22.3°C"
                     android:textAlignment="gravity"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/textLight"
@@ -93,6 +93,12 @@
             </LinearLayout>
 
         </LinearLayout>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/temp_chart"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/graph_height"
+            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/mode_layout"
@@ -148,12 +154,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/temp_chart"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/graph_height"
-            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"

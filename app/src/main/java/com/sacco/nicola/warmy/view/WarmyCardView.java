@@ -48,7 +48,7 @@ public class WarmyCardView extends LinearLayout {
 
         this.textWarmyName.setText(d.getName());
 
-        this.textWarmyActualTemperature.setText(roundNoDecimals(d.getActualTemperature()));
+        this.textWarmyActualTemperature.setText(roundNoDecimals(d.getActualTemperature()) + "°C");
 
         this.textWarmyDesiredTemperature.setText(roundNoDecimals(d.getDesiredTemperature()) + "°C");
 
