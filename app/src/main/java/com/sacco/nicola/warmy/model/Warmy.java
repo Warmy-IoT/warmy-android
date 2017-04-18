@@ -23,7 +23,7 @@ public class Warmy {
 
     private String name = "";
 
-    private float actualTemperature;
+    private float actualTemperature = Float.MIN_VALUE;
 
     private float desiredTemperature;
 
@@ -83,11 +83,11 @@ public class Warmy {
         this.desiredTemperature = desiredTemperature;
     }
 
-    public void fromMQTT(String topic,String payload){
+    public void fromMQTT(String topic, String payload) {
 
         if (topic.equals("/warmy/" + this.getDevice_id() + "/mode")) {
             if (payload.contains(OFF_MODE))
-               this.setActualMode(OFF_MODE);
+                this.setActualMode(OFF_MODE);
             if (payload.contains(MANUAL_MODE))
                 this.setActualMode(MANUAL_MODE);
         }
